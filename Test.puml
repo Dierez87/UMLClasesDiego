@@ -8,12 +8,20 @@ class Event
 
 class Conference
 
+Event <|-- Conference
+
 class BoardMeeting
+
+Event <|-- BoardMeeting
 
 class Person
 
 class Member
 
+Person <|-- Member
+
 class BoardMember
+
+Member <|-- BoardMember
 
 @enduml
