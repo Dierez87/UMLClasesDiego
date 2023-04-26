@@ -1,27 +1,38 @@
 @startuml
-
+skinparam classAttributeIconSize 0
 class AAUOC
 
 class Location
 
+AAUOC o-- Location
+
 class Event
+
+AAUOC o-- Event
+Event -- Location
 
 class Conference
 
 Event <|-- Conference
+Conference -- BoardMeeting
 
 class BoardMeeting
 
 Event <|-- BoardMeeting
 
+
 class Person
+
+AAUOC o-- Person
 
 class Member
 
 Person <|-- Member
+Member -- Event
 
 class BoardMember
 
 Member <|-- BoardMember
+BoardMember -- BoardMeeting
 
 @enduml
