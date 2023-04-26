@@ -1,0 +1,19 @@
+@startuml
+
+class AAUOC
+
+class Location
+
+class Event
+
+class Conference
+
+class BoardMeeting
+
+class Person
+
+class Member
+
+class BoardMember
+
+@enduml
