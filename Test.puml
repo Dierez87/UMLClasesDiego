@@ -1,17 +1,32 @@
 @startuml
 skinparam classAttributeIconSize 0
-class AAUOC
+class AAUOC{
+newLocation(l : Location) : void
+newEvent(e : Event) : void
+newPerson(p : Person) : void
+informEvent(e : Event) : void
+register(m : Member,e : Event) : void
+}
 
-class Location
+class Location{
+description : String
+address : String
+}
 
 AAUOC o-- Location
 
-class Event
+class Event{
+date : Date
+description : String
+assign(l : Location) : void
+}
 
 AAUOC o-- Event
 Event -- Location
 
-class Conference
+class Conference{
+max_attendees : Integer
+}
 
 Event <|-- Conference
 Conference -- BoardMeeting
@@ -21,11 +36,15 @@ class BoardMeeting
 Event <|-- BoardMeeting
 
 
-class Person
+class Person{
+name : String
+}
 
 AAUOC o-- Person
 
-class Member
+class Member{
+e-mail : String
+}
 
 Person <|-- Member
 Member -- Event
