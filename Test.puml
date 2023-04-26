@@ -1,5 +1,5 @@
 @startuml
-skinparam classAttributeIconSize 0
+
 class AAUOC{
 newLocation(l : Location) : void
 newEvent(e : Event) : void
@@ -13,7 +13,7 @@ description : String
 address : String
 }
 
-AAUOC o-- Location
+AAUOC o-- "0..*" Location
 
 class Event{
 date : Date
@@ -21,8 +21,8 @@ description : String
 assign(l : Location) : void
 }
 
-AAUOC o-- Event
-Event -- Location
+AAUOC o-- "0..*" Event
+Event "0..*" -- "1" Location
 
 class Conference{
 max_attendees : Integer
@@ -40,18 +40,19 @@ class Person{
 name : String
 }
 
-AAUOC o-- Person
+AAUOC o-- "0..*" Person
+Person "0..*" -- "0..*" Conference
 
 class Member{
 e-mail : String
 }
 
 Person <|-- Member
-Member -- Event
+Member "0..*" -- "0..*" Event
 
 class BoardMember
 
 Member <|-- BoardMember
-BoardMember -- BoardMeeting
+BoardMember "0..*" -- "0..*" BoardMeeting
 
 @enduml
